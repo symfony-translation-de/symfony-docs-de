@@ -1,103 +1,103 @@
 .. index::
    single: symfony1
 
-How Symfony2 differs from symfony1
-==================================
+Wie unterscheidet sich Symfony2 von symfony1
+============================================
 
-The Symfony2 framework embodies a significant evolution when compared with
-the first version of the framework. Fortunately, with the MVC architecture
-at its core, the skills used to master a symfony1 project continue to be
-very relevant when developing in Symfony2. Sure, ``app.yml`` is gone, but
-routing, controllers and templates all remain.
+Das Symfony2 Framework enthält eine signifikante weiterentwicklung wenn man es
+mit der ersten Version des Frameworks vergleicht. Glücklicherweise, durch die MVC Architektur
+in seinem Kern, sind die Skills die man für symfony1 Projekte gebraucht hat ziemlich
+die selben sind um mit Symfony2 zu Entwicklen. Klar, ``app.yml`` ist weg, aber
+routing, controllers und templates bleiben alle erhalten.
 
-In this chapter, we'll walk through the differences between symfony1 and Symfony2.
-As you'll see, many tasks are tackled in a slightly different way. You'll
-come to appreciate these minor differences as they promote stable, predictable,
-testable and decoupled code in your Symfony2 applications.
+In diesem Kapitel werden wir uns die unterschiede zwischen symfony1 und Symfony2 anschauen.
+Wie du sehen wirst, sind einige Aufgaben ein wenig anderst gelöst. Du wirst
+merken, dass diese kleinen unterschiede stabilität, voraussagbarkeit,
+testbarkeit und entkoppelten Code in deine Symfony2 Applikation bringen.
 
-So, sit back and relax as we take you from "then" to "now".
+Nun lehn dich zurück, den wir werden dich von "damals" bis zum "jetzt" führen.
 
-Directory Structure
+Verzeichnisstruktur
 -------------------
 
-When looking at a Symfony2 project - for example, the `Symfony2 Standard`_ -
-you'll notice a very different directory structure than in symfony1. The
-differences, however, are somewhat superficial.
+Wenn Du dir ein Symfony2 Projekt anschaust - zum Beispiel, dass `Symfony2 Standard`_ Projekt -
+wirst du eine komplett andere Verzeichnisstruktur finden im Gegensatz zu symfony1. Die
+Unterschiede sind jedoch nur oberflächlich.
 
-The ``app/`` Directory
-~~~~~~~~~~~~~~~~~~~~~~
+Das ``app/`` Verzeichnis
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-In symfony1, your project has one or more applications, and each lives inside
-the ``apps/`` directory (e.g. ``apps/frontend``). By default in Symfony2,
-you have just one application represented by the ``app/`` directory. Like
-in symfony1, the ``app/`` directory contains configuration specific to that
-application. It also contains application-specific cache, log and template
-directories as well as a ``Kernel`` class (``AppKernel``), which is the base
-object that represents the application.
+In symfony1, hatte dein Projekt eine oder mehrere Applikationen, und jede lag im
+``apps/`` Verzeichnis (z.B. ``apps/frontend``). Standardmäßig hat man in Symfony2
+nur eine Applikation welche im ``app/`` Verzeichnis liegt. Wie
+in symfony1 enthält das ``app/`` Verzeichnis die Konfiguration welche zur Applikation gehören.
+Es enthält außerdem die Applikationen spezifischen cache, log und template
+Verzeichnisse genauso wie die ``Kernel`` Klasse (``AppKernel``), welches das Basis
+Objekt der Applikation bildet.
 
-Unlike symfony1, almost no PHP code lives in the ``app/`` directory. This
-directory is not meant to house modules or library files as it did in symfony1.
-Instead, it's simply the home of configuration and other resources (templates,
-translation files).
+Anders als in symfony1, gibt es keinen PHP code im ``app/`` Verzeichnis. Das
+Verzeichnis ist nicht dafür ausgelegt Module oder Bibliotheksdateien zu enthalten wie es noch in symfony1 war.
+Stattdessen ist es einfach nur das Zuhause für die Konfiguration und anderen Ressourcen (Templates, 
+Übersetungsdatein).
 
-The ``src/`` Directory
-~~~~~~~~~~~~~~~~~~~~~~
+Das ``src/`` Verzeichnis
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Put simply, your actual code goes here. In Symfony2, all actual application-code
-lives inside a bundle (roughly equivalent to a symfony1 plugin) and, by default,
-each bundle lives inside the ``src`` directory. In that way, the ``src``
-directory is a bit like the ``plugins`` directory in symfony1, but much more
-flexible. Additionally, while *your* bundles will live in the ``src/`` directory,
-third-party bundles will live somewhere in the ``vendor/`` directory.
+Um es einfach zu halten, hier kommt dein eigentlicher Code rein. In Symfony2 lebt der komplette Applikationscode
+in einem Bundel (ungefähr vergleichbar mit einem symfony1 Plugin) und Standardmäßig
+befindet sich jedes Bundel im ``src`` Verzeichnis. Daher ist das ``src``
+Verzeichnis ein wenig wie das ``plugins`` Verzeichnis in symfony1, nur sehr viel
+flexibler. Da *Deine* Bundles im ``src/`` Verzeichnis zu finden sind,
+sind Drittanbieter Bundles irgendwo im ``vendor/`` Verzeichnis zu finden.
 
-To get a better picture of the ``src/`` directory, let's first think of a
-symfony1 application. First, part of your code likely lives inside one or
-more applications. Most commonly these include modules, but could also include
-any other PHP classes you put in your application. You may have also created
-a ``schema.yml`` file in the ``config`` directory of your project and built
-several model files. Finally, to help with some common functionality, you're
-using several third-party plugins that live in the ``plugins/`` directory.
-In other words, the code that drives your application lives in many different
-places.
+Um ein besseres Bild vom ``src/`` Verzeichnis zu bekommen, lass uns zuerst an eine
+symfony1 Applikation denken. Zuerst befindet sich dein Code in einer oder
+mehreren Applikationen. Meistens enthalten diese Module, können aber auch
+irgend welche anderen PHP Klassen enthalten welche du in deine Applikation gepackt hast. Du hast vielleicht auch
+eine ``schema.yml`` Datei im ``config`` Verzeichnis deines Projektes angelegt sowie
+mehrere Model Dateien. Zu guter Letzt, als Hilfe für gewöhnliche Funktionen, hast du
+mehrere Drittanbieter Plugins benutzt, welche im ``plugins/`` Verzeichnis liegen.
+Mit anderen Worten gesagt, der Code für deine Applikation lebt in vielen verschiedenen
+Orten.
 
-In Symfony2, life is much simpler because *all* Symfony2 code must live in
-a bundle. In our pretend symfony1 project, all the code *could* be moved
-into one or more plugins (which is a very good practice, in fact). Assuming
-that all modules, PHP classes, schema, routing configuration, etc were moved
-into a plugin, the symfony1 ``plugins/`` directory would be very similar
-to the Symfony2 ``src/`` directory.
+In Symfony2 ist das leben deutlich einfacher, da der *komplette* Symfony2 Code in
+einem Bundel leben muss. In unserem fiktiven symfony1 Projekt *kann* der gesamte Code
+in ein oder mehrere Plugins (was außerdem eine sehr gute Arbeitsweise ist) verschoben werden. Angenommen,
+das alle Module, PHP Klassen, Schema, Routing Konfiguration, usw
+in ein Plugin verschoben wurden, wird das symfony1 ``plugins/`` Verzeichnis ziemlich identisch
+zum Symfony2 ``src/`` Verzeichnis.
 
-Put simply again, the ``src/`` directory is where your code, assets,
-templates and most anything else specific to your project will live.
+Um es nochmal einfach zu sagen, dass ``src/`` Verzeichnis ist der Ort wo dein Code, Assets,
+Templates und das meiste andere Projekt spezifische Sachen sich befinden.
 
-The ``vendor/`` Directory
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Das ``vendor/`` Verzeichnis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``vendor/`` directory is basically equivalent to the ``lib/vendor/``
-directory in symfony1, which was the conventional directory for all vendor
-libraries and bundles. By default, you'll find the Symfony2 library files in
-this directory, along with several other dependent libraries such as Doctrine2,
-Twig and Swiftmailer. 3rd party Symfony2 bundles live somewhere in the
-``vendor/``.
+Das ``vendor/`` Verzeichnis ist  ist grundsätzlich das selbe wie das ``lib/vendor/``
+Verzeichnis in symfony1, welches das übliche Verzeichnis für alle Vendor Bibliotheken
+und Bundles ist. Standardmäßig findest du alle Symfony2 Bibliotheks Dateien in
+diesem Verzeichnis neben vielen anderen abhängigen Bibliotheken wie Doctrine2,
+Twig und Swiftmailer. Drittanbieter Symfony2 Bundles leben irgendwo im
+``vendor/`` Verzeichnis.
 
-The ``web/`` Directory
-~~~~~~~~~~~~~~~~~~~~~~
+Das ``web/`` Verzeichnis
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Not much has changed in the ``web/`` directory. The most noticeable difference
-is the absence of the ``css/``, ``js/`` and ``images/`` directories. This
-is intentional. Like with your PHP code, all assets should also live inside
-a bundle. With the help of a console command, the ``Resources/public/``
-directory of each bundle is copied or symbolically-linked to the ``web/bundles/``
-directory. This allows you to keep assets organized inside your bundle, but
-still make them available to the public. To make sure that all bundles are
-available, run the following command::
+Es hat sich nicht viel im ``web/`` Verzeichnis geändert. Der auffallendste unterschied
+ist die Abwesenheit der ``css/``, ``js/`` and ``images/`` Verzeichnisse. Dies ist
+bewusst. Genauso wie mit deinem PHP Code sollten alle Assets in einem
+Bundel leben. Mit hilfe eines Konsolen Kommandos wird das ``Resources/public/``
+Verzeichnis von jedem Bundle nach ``web/bundles/`` Verzeichnis kopiert oder Verknüpft.
+Das erlaubt es alle Assets in deinem Bundel zu Organisieren, diese aber
+trotzdem öffentlich zu Verfügung zu stellen. Um sicher zu gehen das alle Bundles
+verfügbar sind, führe das folgende Kommando aus::
 
     php app/console assets:install web
 
-.. note::
+.. Notiz::
 
-   This command is the Symfony2 equivalent to the symfony1 ``plugin:publish-assets``
-   command.
+   Dieses Kommando ist das Symfony2 äquivalent zu dem symfony1 Kommando ``plugin:publish-assets``.
+
 
 Autoloading
 -----------
