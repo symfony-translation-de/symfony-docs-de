@@ -1,13 +1,13 @@
 .. index::
-   single: Requirements
+   single: Voraussetzungen
    
 Systemvoraussetzungen für den Betrieb von Symfony2
-=================================
+==================================================
 
 Für Symfony2 musst du die untenstehende Liste von Systemvoraussetzungen erfüllen. Du kannst
-ganz einfach prüfen ob dein System die Systemvoraussetzungen erfüllt, in dem du ``web/config.php``
+ganz einfach prüfen ob dein System die Voraussetzungen erfüllt, in dem du ``web/config.php``
 in deiner Symfony Distribution ausführst. Da die Konsole oft eine andere ``php.ini``
-Konfigurationsdatei nutzt, ist es auch ein gute Idee deine Systemvoraussetzungen
+Konfiguration verwendet, ist es auch ein gute Idee deine Systemvoraussetzungen
 über die Kommandozeile, mit dem folgendem Kommando zu prüfen:
 
 .. code-block:: bash
@@ -45,5 +45,5 @@ Optional
 Doctrine
 --------
 
-Wenn du Doctrine nutzen möchtest, dann musst du PDO installiert haben. Zusätzlich
+Wenn du Doctrine nutzen möchtest, musst du PDO installiert haben. Zusätzlich
 benötigst du noch den PDO Datenbanktreiber, für die Datenbank die du nutzen möchtest.
