@@ -1,5 +1,5 @@
 .. index::
-   single: Controller; As Services
+   single: Controller; Als Services
 
 How to define Controllers as Services
 =====================================
@@ -35,7 +35,7 @@ you'll interact directly with the services that you need. Fortunately, this is
 usually pretty easy and the base ``Controller`` class itself is a great source
 on how to perform many common tasks.
 
-.. note::
+.. Notiz::
 
     Specifying a controller as a service takes a little bit more work. The
     primary advantage is that the entire controller or any services passed to
