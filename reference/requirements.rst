@@ -1,41 +1,41 @@
 .. index::
    single: Requirements
    
-Requirements for running Symfony2
+Systemvoraussetzungen für den Betrieb von Symfony2
 =================================
 
-To run Symfony2, your system needs to adhere to a list of requirements. You can
-easily see if your system passes all requirements by running the ``web/config.php``
-in your Symfony distribution. Since the CLI often uses a different ``php.ini``
-configuration file, it's also a good idea to check your requirements from
-the command line via:
+Für Symfony2 musst du die untenstehende Liste von Systemvoraussetzungen erfüllen. Du kannst
+ganz einfach prüfen ob dein System die Systemvoraussetzungen erfüllt, in dem du ``web/config.php``
+in deiner Symfony Distribution ausführst. Da die Konsole oft eine andere ``php.ini``
+Konfigurationsdatei nutzt, ist es auch ein gute Idee deine Systemvoraussetzungen
+über die Kommandozeile, mit dem folgendem Kommando zu prüfen:
 
 .. code-block:: bash
 
     php app/check.php
 
-Below is the list of required and optional requirements.
+Unten ist die Liste der erforderlichen und optionalen Anforderungen.
 
-Required
+Benötigt
 --------
 
-* PHP needs to be a minimum version of PHP 5.3.3
-* JSON needs to be enabled
-* ctype needs to be enabled
-* Your PHP.ini needs to have the date.timezone setting
+* PHP muss mindestens mit der Version PHP 5.3.3 installiert sein
+* JSON muss verfügbar sein
+* ctype muss verfügbar sein
+* In deiner php.ini muss die Option date.timezone ausgefüllt sein
 
 Optional
 --------
 
-* You need to have the PHP-XML module installed
-* You need to have at least version 2.6.21 of libxml
-* PHP tokenizer needs to be enabled
-* mbstring functions need to be enabled
-* iconv needs to be enabled
-* POSIX needs to be enabled (only on \*nix)
-* Intl needs to be installed with ICU 4+
-* APC 3.0.17+ (or another opcode cache needs to be installed)
-* PHP.ini recommended settings
+* Das PHP-XML Modul sollte verfügbar sein
+* libxml sollte mindestens mit der Version 2.6.21 verfügbar sein
+* PHP tokenizer sollte verfügbar sein
+* Die mbstring Funktionen sollten verfügbar sein
+* iconv sollte verfügbar sein
+* POSIX sollte verfügbar sein (nur für \*nix Systeme)
+* Intl sollte mit ICU4+ verfügbar sein
+* APC 3.0.17+ oder ein ander Opcode Cache sollte verfügbar sein
+* Emfohlene PHP.ini Einstellungen
 
   * ``short_open_tag = Off``
   * ``magic_quotes_gpc = Off``
@@ -45,6 +45,5 @@ Optional
 Doctrine
 --------
 
-If you want to use Doctrine, you will need to have PDO installed. Additionally,
-you need to have the PDO driver installed for the database server you want
-to use.
+Wenn du Doctrine nutzen möchtest, dann musst du PDO installiert haben. Zusätzlich
+benötigst du noch den PDO Datenbanktreiber, für die Datenbank die du nutzen möchtest.
