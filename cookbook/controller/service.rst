@@ -1,23 +1,23 @@
 .. index::
    single: Controller; Als Services
 
-How to define Controllers as Services
-=====================================
+Wie definiere ich Controller als Services
+=========================================
 
-In the book, you've learned how easily a controller can be used when it
-extends the base
-:class:`Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller` class. While
-this works fine, controllers can also be specified as services.
+Im Buch hast du gelernt wie einfach ein Controller benutzt werden kann wenn man
+die basis Klasse
+:class:`Symfony\\Bundle\\FrameworkBundle\\Controller\\Controller` erweitert. Weil
+dies so gut funktioniert, können Controller auch als Services festgelegt werden.
 
-To refer to a controller that's defined as a service, use the single colon (:)
-notation. For example, suppose we've defined a service called
-``my_controller`` and we want to forward to a method called ``indexAction()``
-inside the service::
+Um sich auf einen Controller zu beziehen welcher auch als Service definiert ist, benutze eine einzelne Doppelpunkt (:)
+Schreibweise. Zum Beispiel, angenommen wir haben einen Service definiert welchen wir 
+``my_controller`` genannt haben und wir wollen auf den Methoden aufruf ``indexAction()`` weiterleiten
+innerhalb des Services::
 
     $this->forward('my_controller:indexAction', array('foo' => $bar));
 
-You need to use the same notation when defining the route ``_controller``
-value:
+Du musst auch die selbe Notation beim definieren des ``_controller`` werts
+benutzen:
 
 .. code-block:: yaml
 
@@ -25,22 +25,22 @@ value:
         pattern:   /
         defaults:  { _controller: my_controller:indexAction }
 
-To use a controller in this way, it must be defined in the service container
-configuration. For more information, see the :doc:`Service Container
-</book/service_container>` chapter.
+Um einen Controller auf diese weise zu benutzen muss dieser im Servicecontainer
+konfiguriert werden. Für mehr Informationen, siehe das :doc:`Service Container
+</book/service_container>` Kapitel.
 
-When using a controller defined as a service, it will most likely not extend
-the base ``Controller`` class. Instead of relying on its shortcut methods,
-you'll interact directly with the services that you need. Fortunately, this is
-usually pretty easy and the base ``Controller`` class itself is a great source
-on how to perform many common tasks.
+Wenn du einen Controller als Service benutzen willst, erweitert dieser meistens nicht
+die Basis ``Controller`` Klasse. Anstatt auf die Shortcut Methoden sich zu verlassen,
+interagierst du direkt mit den benötigten Services. Zum Glück ist dies,
+normalerweise echt einfach und die ``Controller`` Klasse selbst ist eine tolle Quelle
+wie man die meisten gewöhnlichen Tasks durchführt.
 
-.. Notiz::
+.. note::
 
-    Specifying a controller as a service takes a little bit more work. The
-    primary advantage is that the entire controller or any services passed to
-    the controller can be modified via the service container configuration.
-    This is especially useful when developing an open-source bundle or any
-    bundle that will be used in many different projects. So, even if you don't
-    specify your controllers as services, you'll likely see this done in some
-    open-source Symfony2 bundles.
+    Einen Controller als Service Task zu definieren benötigt ein wenig mehr Arbeit. Der
+    hauptsächliche Vorteil ist das der komplette Controller oder egal welcher Service welcher dem
+    Controller übergeben wird, einfach über den Service Container Konfiguriert werden kann.
+    Dies ist besonders nützlich wenn man ein Open-Source Bundle oder ein Bundle Entwickelt
+    welches in vielen verschiedenen Projekten eingesetzt wird. selbst wenn du selbst nicht
+    deine Controller als Services spezifizierst, wirst du dies oft in vielen
+    Open-Source Symfony2 Bundles vorfinden.
