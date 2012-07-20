@@ -23,7 +23,7 @@
   * :doc:`/cookbook/configuration/pdo_session_storage`
   * :doc:`/cookbook/configuration/apache_router`
 
-* **Console Commands**
+* **Konsolen Kommandos**
 
   * :doc:`/cookbook/console/console_command`
 
