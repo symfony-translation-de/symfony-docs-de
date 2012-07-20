@@ -1,29 +1,29 @@
 .. index::
-   single: Tests; HTTP authentication
+   single: Tests; HTTP Authentifizierung
 
-How to simulate HTTP Authentication in a Functional Test
-========================================================
+Wie man HTTP Authentifizierung in einem funktionalen Test simuliert
+===================================================================
 
-If your application needs HTTP authentication, pass the username and password
-as server variables to ``createClient()``::
+Wenn deine Applikation HTTP Authentifizierung benötigt kannst du einfach Username und Passwort
+als Server variabel der Funktion ``createClient()`` übergeben::
 
     $client = static::createClient(array(), array(
         'PHP_AUTH_USER' => 'username',
         'PHP_AUTH_PW'   => 'pa$$word',
     ));
 
-You can also override it on a per request basis::
+Du kannst auch für jede Anfrage dies überschrieben::
 
     $client->request('DELETE', '/post/12', array(), array(
         'PHP_AUTH_USER' => 'username',
         'PHP_AUTH_PW'   => 'pa$$word',
     ));
 
-When your application is using a ``form_login``, you can simplify your tests
-by allowing your test configuration to make use of HTTP authentication. This
-way you can use the above to authenticate in tests, but still have your users
-login via the normal ``form_login``. The trick is to include the ``http_basic``
-key in your firewall, along with the ``form_login`` key:
+Wenn deine Applikation ein ``form_login`` benutzt, kannst du deine Tests vereinfachen
+indem du in deiner Test Konfiguration die Benutzung von HTTP Authentifizierung erlaubst. Auf
+diesem weg kannst du die Methode von oben nehmen um dich in deinen Tests zu Authentifizieren, währenddessen deine User sich
+normal über den ``form_login`` einloggen müssen. Der Trick dabei ist ``http_basic`` Schlüssel
+in deiner Firewall Konfiguration neben dem ``form_login`` Schlüssel einzutragen:
 
 .. configuration-block::
 

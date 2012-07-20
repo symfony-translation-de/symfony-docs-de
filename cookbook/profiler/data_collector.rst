@@ -1,18 +1,18 @@
 .. index::
    single: Profiling; Data collector
 
-How to create a custom Data Collector
-=====================================
+Wie man einen eigenen Data Collector erstellt
+=============================================
 
-The Symfony2 :ref:`Profiler <internals-profiler>` delegates data collecting to
-data collectors. Symfony2 comes bundled with a few of them, but you can easily
-create your own.
+Der Symfony2 :ref:`Profiler <internals-profiler>` delegiert das Datensammeln an
+data collectors. Symfony2 kommt bereits mit einigen von ihnen mit, du kannst aber leicht
+deinen eigenen erstellen.
 
-Creating a Custom Data Collector
---------------------------------
+Erstellen eines eigenen Data Collector
+--------------------------------------
 
-Creating a custom data collector is as simple as implementing the
-:class:`Symfony\\Component\\HttpKernel\\DataCollector\\DataCollectorInterface`::
+Das erstellen eines eigenen data collector ist sehr simpel da man nur das Interface
+:class:`Symfony\\Component\\HttpKernel\\DataCollector\\DataCollectorInterface` implementieren muss::
 
     interface DataCollectorInterface
     {
@@ -33,23 +33,23 @@ Creating a custom data collector is as simple as implementing the
         function getName();
     }
 
-The ``getName()`` method must return a unique name. This is used to access the
-information later on (see :doc:`/cookbook/testing/profiling` for
-instance).
+Die ``getName()`` Funktion muss einen eindeutigen Namen zurück geben. Dieser wird benutzt um später zugriff
+auf die Informationen zu bekommen (siehe :doc:`/cookbook/testing/profiling` als
+Beispiel).
 
-The ``collect()`` method is responsible for storing the data it wants to give
-access to in local properties.
+Die ``collect()`` funktion ist dafür verantwortlich die Daten zu speichern, welche man später
+als lokale Eingenschaften verfügbar machen will.
 
 .. caution::
 
-    As the profiler serializes data collector instances, you should not
-    store objects that cannot be serialized (like PDO objects), or you need
-    to provide your own ``serialize()`` method.
+    Da der Profiler die data collector Instanzen serialisiert solltest du keine
+    Objekte speichern welche sich nicht serialisieren lassen (wie PDO Objekte) außer du
+    lieferst deine eigene ``serialize()`` Funktion.
 
-Most of the time, it is convenient to extend
-:class:`Symfony\\Component\\HttpKernel\\DataCollector\\DataCollector` and
-populate the ``$this->data`` property (it takes care of serializing the
-``$this->data`` property)::
+Die meiste Zeit ist es üblich die Klasse
+:class:`Symfony\\Component\\HttpKernel\\DataCollector\\DataCollector` zu erweitern und
+die variable ``$this->data`` zu veröffentlichen (dies passt auf das die variable
+``$this->data`` serialisiert wird)::
 
     class MemoryDataCollector extends DataCollector
     {
@@ -73,11 +73,11 @@ populate the ``$this->data`` property (it takes care of serializing the
 
 .. _data_collector_tag:
 
-Enabling Custom Data Collectors
--------------------------------
+Aktivieren des eigenen Data Collectors
+--------------------------------------
 
-To enable a data collector, add it as a regular service in one of your
-configuration, and tag it with ``data_collector``:
+Um einen data collector zu aktivieren muss dieser als regulärer Service in deine
+Konfiguration aufgenommen werden und mit dem Tag ``data_collector`` versehen werden:
 
 .. configuration-block::
 
@@ -105,9 +105,9 @@ configuration, and tag it with ``data_collector``:
 Adding Web Profiler Templates
 -----------------------------
 
-When you want to display the data collected by your Data Collector in the web
-debug toolbar or the web profiler, create a Twig template following this
-skeleton:
+Wenn du die von deinem Data Collector gesammelten Daten in der Web
+Debug Toolbar oder im Web Profiler darstellen willst erstelle ein Twig Template mit folgendem
+Gerüst:
 
 .. code-block:: jinja
 
@@ -129,21 +129,21 @@ skeleton:
         {# the panel content #}
     {% endblock %}
 
-Each block is optional. The ``toolbar`` block is used for the web debug
-toolbar and ``menu`` and ``panel`` are used to add a panel to the web
-profiler.
+Jeder Block ist optional. Der ``toolbar`` Block wird benutzt für die Web Debug
+Toolbar und ``menu`` und ``panel`` werden benutzt um ein Panel zum Web Profiler
+hinzuzufügen.
 
-All blocks have access to the ``collector`` object.
+Alle Blöcke haben zugriff auf das ``collector`` Objekt.
 
 .. tip::
 
-    Built-in templates use a base64 encoded image for the toolbar (``<img
-    src="src="data:image/png;base64,..."``). You can easily calculate the
-    base64 value for an image with this little script: ``echo
+    Built-in Templates benutzen base64 encodierte Bilder für die Toolbar (``<img
+    src="src="data:image/png;base64,..."``). Du kannst leicht den
+    base64 wert für dein Image mit diesem kleinen Script berechnen: ``echo
     base64_encode(file_get_contents($_SERVER['argv'][1]));``.
 
-To enable the template, add a ``template`` attribute to the ``data_collector``
-tag in your configuration. For example, assuming your template is in some
+Um das template zu aktiveren fürge ein ``template`` attribut zum ``data_collector``
+Tag in deiner Konfiguration hinzu. Zum Beispiel angenommen dein Template ist im Bunel
 ``AcmeDebugBundle``:
 
 .. configuration-block::

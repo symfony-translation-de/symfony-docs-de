@@ -1,24 +1,24 @@
 .. index::
    single: Tests; Doctrine
 
-How to test Doctrine Repositories
-=================================
+Wie man Doctrine Repositorys testet
+===================================
 
-Unit testing Doctrine repositories in a Symfony project is not recommended.
-When you're dealing with a repository, you're really dealing with something
-that's meant to be tested against a real database connection.
+Doctrine Repositorys mit Unit-tests zu testen is in einem Symfony Projekt nicht empfohlen.
+Wen du mit einem Repository arbeitest, arbeitest du mit etwas,
+das gegen eine richtige Datenbankverbindung getestet werden sollte.
 
-Fortunately, you can easily test your queries against a real database, as
-described below.
+Zum Glück kannst du sehr leicht deine Queries gegen eine echte Datenbank testen, wie
+weiter unten Beschrieben.
 
 .. _cookbook-doctrine-repo-functional-test:
 
-Functional Testing
-------------------
+Funktionales testen
+-------------------
 
-If you need to actually execute a query, you will need to boot the kernel
-to get a valid connection. In this case, you'll extend the ``WebTestCase``,
-which makes all of this quite easy::
+Um wirklich einen Query auszuführen, muss der Kernel gebootet werden,
+um eine gültige Verbindung zu bekommen. In diesem fall, muss man die Klasse ``WebTestCase`` erweitern,
+was dies alles sehr einfach macht::
 
     // src/Acme/StoreBundle/Tests/Entity/ProductRepositoryFunctionalTest.php
     namespace Acme\StoreBundle\Tests\Entity;

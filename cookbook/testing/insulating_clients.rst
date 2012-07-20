@@ -1,11 +1,11 @@
 .. index::
-   single: Tests; Insulating clients
+   single: Tests; Clients isolieren
 
-How to test the Interaction of several Clients
-==============================================
+Wie man die Interaktion zwischen mehreren Clients testet
+========================================================
 
-If you need to simulate an interaction between different Clients (think of a
-chat for instance), create several Clients::
+Wenn du eine Interaktion zwischen mehreren Clients simulieren willst (denk zum Beispiel
+an einen Chat), erstelle mehrere Clients::
 
     $harry = static::createClient();
     $sally = static::createClient();
@@ -16,9 +16,9 @@ chat for instance), create several Clients::
     $this->assertEquals(201, $harry->getResponse()->getStatusCode());
     $this->assertRegExp('/Hello/', $sally->getResponse()->getContent());
 
-This works except when your code maintains a global state or if it depends on
-a third-party library that has some kind of global state. In such a case, you
-can insulate your clients::
+Das funktioniert, außer der Code den du Verwaltest verwendet einen Globalen Zustand oder er basiert auf einer
+Drittanbieter Bibliothek welches in irgendeiner Form Globale Zustände verwendet. In diesem Fall
+kannst du deine Clients isolieren::
 
     $harry = static::createClient();
     $sally = static::createClient();
@@ -32,10 +32,10 @@ can insulate your clients::
     $this->assertEquals(201, $harry->getResponse()->getStatusCode());
     $this->assertRegExp('/Hello/', $sally->getResponse()->getContent());
 
-Insulated clients transparently execute their requests in a dedicated and
-clean PHP process, thus avoiding any side-effects.
+Isolieren von Clients führt deren Anfragen erkennbar in einem dedizierten und
+sauberen PHP Prozess aus und verhindert dadurch jedweden Seiteneffekt.
 
 .. tip::
 
-    As an insulated client is slower, you can keep one client in the main
-    process, and insulate the other ones.
+    Da isolierte Clients langsamer sind kannst du einen Client im Hauptprozess
+    lassen und die anderen isolieren.

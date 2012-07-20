@@ -1,19 +1,19 @@
 .. index::
    single: Tests; Profiling
 
-How to use the Profiler in a Functional Test
-============================================
+Wie man den Profiler in einem funktionalen Test verwendet
+=========================================================
 
-It's highly recommended that a functional test only tests the Response. But if
-you write functional tests that monitor your production servers, you might
-want to write tests on the profiling data as it gives you a great way to check
-various things and enforce some metrics.
+Ist wird sehr empfohlen das ein funktionaler Test nur die Antwort testet. Aber wenn
+du funktionale Tests schreibst um den Produktiven Server zu überwachen, möchtest du 
+Tests schreiben welche auf den Profilingdaten basieren, da diese eine gute Möglichkeit bieten
+verschiedene Dinge zu testen und einige Messungen durchzuführen.
 
-The Symfony2 :ref:`Profiler <internals-profiler>` gathers a lot of data for
-each request. Use this data to check the number of database calls, the time
-spent in the framework, ... But before writing assertions, always check that
-the profiler is indeed available (it is enabled by default in the ``test``
-environment)::
+Der Symfony2 :ref:`Profiler <internals-profiler>` sammelt viele Informationen über
+jede Anfrage. Benutze diese Daten um die Anzahl der Datenbank aufrufe zu überprüfen, die zeit
+die das Framework gebraucht hat, ... Aber bevor du Überprüfungen schreibst, überprüfe immer
+ob der Profiler wirklich verfügbar ist (er ist Standardmäßig in der ``test`` Umgebung aktiviert
+)::
 
     class HelloControllerTest extends WebTestCase
     {
@@ -35,9 +35,9 @@ environment)::
         }
     }
 
-If a test fails because of profiling data (too many DB queries for instance),
-you might want to use the Web Profiler to analyze the request after the tests
-finish. It's easy to achieve if you embed the token in the error message::
+Wenn ein Test aufgrund der Profilingdaten fehlschlägt (zum Beispiel wegen zu vielen DB Querys),
+möchtest du wahrscheinlich den Web Profiler nutzen um die Anfrage nach beenden des Tests genauer zu analysieren
+. Dies ist leicht zu erreichen wenn du den Token in die Fehlermeldung einbindest::
 
     $this->assertLessThan(
         30,
@@ -47,16 +47,16 @@ finish. It's easy to achieve if you embed the token in the error message::
 
 .. caution::
 
-     The profiler store can be different depending on the environment
-     (especially if you use the SQLite store, which is the default configured
-     one).
+     Der Profiler Speicher kann abhängig von ihrer Umgebung unterschiedlich sein
+     (vor allem wenn du den SQLite Speicher verwendest, welcher der Standardmäßig konfigurierte
+     ist).
 
 .. note::
 
-    The profiler information is available even if you insulate the client or
-    if you use an HTTP layer for your tests.
+    Die Profiler Information sind auch verfügbar solltest du den Client isolieren oder
+    wenn du einen HTTP Layer für deine Tests verwendest.
 
 .. tip::
 
-    Read the API for built-in :doc:`data collectors</cookbook/profiler/data_collector>`
-    to learn more about their interfaces.
+    lese die API Dokumentation für eingebaute :doc:`data collectors</cookbook/profiler/data_collector>`
+    um mehr über deren Interfaces herauszufinden.

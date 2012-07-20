@@ -1,10 +1,10 @@
-Symfony2 Documentation
+Symfony2 Dokumentation
 ======================
 
-Quick Tour
-----------
+Schnelleinstieg
+---------------
 
-Get started fast with the Symfony2 :doc:`Quick Tour <quick_tour/index>`:
+Starte schnell mit Symfony2 mit dem :doc:`Schnelleinstieg <quick_tour/index>`:
 
 .. toctree::
     :hidden:
@@ -16,10 +16,10 @@ Get started fast with the Symfony2 :doc:`Quick Tour <quick_tour/index>`:
 * :doc:`quick_tour/the_controller` >
 * :doc:`quick_tour/the_architecture`
 
-Book
+Buch
 ----
 
-Dive into Symfony2 with the topical guides:
+Tauche ein in Symfony2 mit dem aktuellen Leitfaden:
 
 .. toctree::
     :hidden:
@@ -28,7 +28,7 @@ Dive into Symfony2 with the topical guides:
 
 .. include:: /book/map.rst.inc
 
-Cookbook
+Kochbuch
 --------
 
 .. toctree::
@@ -36,22 +36,22 @@ Cookbook
 
     cookbook/index
 
-Read the :doc:`Cookbook </cookbook/index>`.
+Lese das :doc:`Kochbuch </cookbook/index>`.
 
-Components
-----------
+Komponenten
+----------.
 
 .. toctree::
     :hidden:
 
     components/index
 
-Read the :doc:`Components </components/index>` documentation.
+Lese die:doc:`Komponenten </components/index>` dokumentation.
 
-Reference Documents
--------------------
+Hinweis Dokumente
+-----------------
 
-Get answers quickly with reference documents:
+Bekomme schnelle Antwort mit den Hinweisdokumenten:
 
 .. toctree::
     :hidden:
@@ -63,7 +63,7 @@ Get answers quickly with reference documents:
 Bundles
 -------
 
-The Symfony Standard Edition comes with some bundles. Learn more about them:
+Die Symfony2 Standard Edition kommt mit einige Bundels. Lerne mehr über diese:
 
 .. toctree::
     :hidden:
@@ -72,10 +72,10 @@ The Symfony Standard Edition comes with some bundles. Learn more about them:
 
 .. include:: /bundles/map.rst.inc
 
-Contributing
-------------
+Mitwirken
+---------
 
-Contribute to Symfony2:
+Wirke bei Symfony2 mit:
 
 .. toctree::
     :hidden:

@@ -1,22 +1,22 @@
 .. index::
-   single: Console; Create commands
+   single: Konsole; Kommando erstellen
 
-How to create a Console Command
-===============================
+Wie man ein Konsolen Kommando erstellt
+======================================
 
-The Console page of the Components section (:doc:`/components/console`) covers
-how to create a Console command. This cookbook articles covers the differences
-when creating Console commands within the Symfony2 framework.
+Die Konsolen Seite im Komponenten Bereich (:doc:`/components/console`) erklärt
+wie man Konsolen Kommandos erstellt. Dieser Kochbuch Artikel erklärt die Unterschiede
+beim erstellen von Konsolen Kommandos im Symfony2 Framework.
 
-Automatically Registering Commands
-----------------------------------
+Automatische Registrierung von Kommandos
+----------------------------------------
 
-To make the console commands available automatically with Symfony2, create a
-``Command`` directory inside your bundle and create a php file suffixed with
-``Command.php`` for each command that you want to provide. For example, if you
-want to extend the ``AcmeDemoBundle`` (available in the Symfony Standard
-Edition) to greet us from the command line, create ``GreetCommand.php`` and
-add the following to it::
+Um ein Konsolen Kommando automatisch in Symfony2 verfügbar zu machen erstelle im
+``Command`` Verzeichnis innerhalb deines Bundles eine PHP Datei welche mit 
+``Command.php`` endet für jedes Kommando das du bereitstellen willst. Wenn du zum Beispiel
+das Bundle ``AcmeDemoBundle`` erweitern möchtest (welches in der Symfony Standard
+Version verfügbar ist). dass es uns von der Kommandozeile her grüßt, erstelle die Datei ``GreetCommand.php`` und
+füge das Folgende ein::
 
     // src/Acme/DemoBundle/Command/GreetCommand.php
     namespace Acme\DemoBundle\Command;
@@ -56,17 +56,17 @@ add the following to it::
         }
     }
 
-This command will now automatically be available to run:
+Dieses Kommando wird nun automatisch für die Ausführung verfügbar sein:
 
 .. code-block:: bash
 
     app/console demo:greet Fabien
 
-Testing Commands
+Kommandos testen
 ----------------
 
-When testing commands used as part of the full framework :class:`Symfony\\Bundle\\FrameworkBundle\\Console\\Application`
-should be used instead of :class:`Symfony\\Component\\Console\\Application`::
+Um ein Kommando zu testen welches teil des kompletten Frameworks ist sollte :class:`Symfony\\Bundle\\FrameworkBundle\\Console\\Application`
+anstatt von :class:`Symfony\\Component\\Console\\Application` verwendet werden::
 
     use Symfony\Component\Console\Tester\CommandTester;
     use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -90,14 +90,14 @@ should be used instead of :class:`Symfony\\Component\\Console\\Application`::
         }
     }
 
-Getting Services from the Service Container
--------------------------------------------
+Services vom Service Container bekommen
+---------------------------------------
 
-By using :class:`Symfony\\Bundle\\FrameworkBundle\\Command\\ContainerAwareCommand` 
-as the base class for the command (instead of the more basic 
-:class:`Symfony\\Component\\Console\\Command\\Command`), you have access to the 
-service container. In other words, you have access to any configured service.
-For example, you could easily extend the task to be translatable::
+Wenn man :class:`Symfony\\Bundle\\FrameworkBundle\\Command\\ContainerAwareCommand` 
+als Basis Klasse für das Kommando verwendet (anstelle der mehr grundlegenden Klasse 
+:class:`Symfony\\Component\\Console\\Command\\Command`), hast du zugriff auf den
+Service Container. Mit anderen worten du hast zugriff auf jeden Konfigurierten Service.
+Zum Beispiel kannst du den Task leicht übersetzbar machen::
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {

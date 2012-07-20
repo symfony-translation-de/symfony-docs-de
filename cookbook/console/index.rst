@@ -1,4 +1,4 @@
-Console
+Konsole
 =======
 
 .. toctree::
