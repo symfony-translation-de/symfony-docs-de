@@ -28,15 +28,15 @@ Tauche ein in Symfony2 mit dem aktuellen Leitfaden:
 
 .. include:: /book/map.rst.inc
 
-Kochbuch
---------
+Das "Cookbook"
+--------------
 
 .. toctree::
     :hidden:
 
     cookbook/index
 
-Lese das :doc:`Kochbuch </cookbook/index>`.
+Lese das ":doc:`Cookbook </cookbook/index>`".
 
 Komponenten
 -----------
