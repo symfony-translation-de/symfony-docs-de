@@ -1,4 +1,4 @@
-The Symfony Standard Edition Bundles
+Die Symfony Standard Edition Bundles
 ====================================
 
 .. toctree::
