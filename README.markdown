@@ -1,7 +1,7 @@
-Symfony Documentation
+Symfony Dokumentation
 =====================
 
-This documentation is rendered online at http://symfony.com/doc/current/
+Diese Dokumentation ist online verfügbar unter http://symfony.fkrauthan.de/docs-de/
 
 Contributing
 ------------
