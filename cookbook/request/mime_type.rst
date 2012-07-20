@@ -1,30 +1,30 @@
 .. index::
-   single: Request; Add a request format and mime type
+   single: Request; Ein Request Format und Mime Type hinzufügen
 
-How to register a new Request Format and Mime Type
-==================================================
+Wie man ein neues Request Format und ein neuen Mime Type registriert
+====================================================================
 
-Every ``Request`` has a "format" (e.g. ``html``, ``json``), which is used
-to determine what type of content to return in the ``Response``. In fact,
-the request format, accessible via
+Jeder ``Request`` hat ein "format" (z.B. ``html``, ``json``), welches benutzt wird
+um festzustellen welcher Typ des Contents im ``Response`` zurückgegeben wird. Tatsächlich,
+kann das Request Format, abrufbar mit
 :method:`Symfony\\Component\\HttpFoundation\\Request::getRequestFormat`,
-is used to set the MIME type of the ``Content-Type`` header on the ``Response``
-object. Internally, Symfony contains a map of the most common formats (e.g.
-``html``, ``json``) and their associated MIME types (e.g. ``text/html``,
-``application/json``). Of course, additional format-MIME type entries can
-easily be added. This document will show how you can add the ``jsonp`` format
-and corresponding MIME type.
+wird benutzt um den MIME Type des ``Content-Type`` Headers des ``Response``
+Objektes zu setzen. Intern enthält Symfony eine Map mit den meist gebräuchlichsten Formaten (z.B.
+``html``, ``json``) und deren zugehörigen MIME Types (z.B. ``text/html``,
+``application/json``). Natürlich können auch zusätzliche Format-MIME Type Einträge
+leicht hinzugefügt werden. Dieses Dokument wird dir zeigen, wie man das ``jsonp`` Format
+samt dem zugehörigen MIME Type hinzufügt.
 
-Create a ``kernel.request`` Listener
--------------------------------------
+Erstelle einen ``kernel.request`` Listener
+------------------------------------------
 
-The key to defining a new MIME type is to create a class that will "listen" to
-the ``kernel.request`` event dispatched by the Symfony kernel. The
-``kernel.request`` event is dispatched early in Symfony's request handling
-process and allows you to modify the request object.
+Der Schlüssel um ein neuen MIME Type zu definieren ist es eine Klasse zu erstellen welche "zuhört" zum
+``kernel.request`` Event welche vom Symfony Kernel ausgelöst wird. Das
+``kernel.request`` Event wird früh im Symfony's Request Handling ausgelöst
+und erlaubt es das Request Objekt zu verändern.
 
-Create the following class, replacing the path with a path to a bundle in your
-project::
+Erstelle die folgende Klasse und ersetze den Pfad durch einen Pfad zu einem Bundel in deinem
+Projekt::
 
     // src/Acme/DemoBundle/RequestListener.php
     namespace Acme\DemoBundle;
@@ -40,11 +40,11 @@ project::
         }
     }
 
-Registering your Listener
+Registriere deinen Listener
 -------------------------
 
-As for any other listener, you need to add it in one of your configuration
-file and register it as a listener by adding the ``kernel.event_listener`` tag:
+Wie bei jedem anderen Listener auch musst zu deinem Konfigurations Datei hinzufügen
+und den Listener Registrieren indem du das ``kernel.event_listener`` Tag hinzufügst:
 
 .. configuration-block::
 
@@ -79,11 +79,11 @@ file and register it as a listener by adding the ``kernel.event_listener`` tag:
         $definition->addTag('kernel.event_listener', array('event' => 'kernel.request', 'method' => 'onKernelRequest'));
         $container->setDefinition('acme.demobundle.listener.request', $definition);
 
-At this point, the ``acme.demobundle.listener.request`` service has been
-configured and will be notified when the Symfony kernel dispatches the
-``kernel.request`` event.
+An diesem Punkt ist der Service ``acme.demobundle.listener.request``
+konfiguriert und wird informiert wenn der Symfony Kernel das
+``kernel.request`` Event auslöst.
 
 .. tip::
 
-    You can also register the listener in a configuration extension class (see
-    :ref:`service-container-extension-configuration` for more information).
+    Du kannst auch den Listener in einer Konfigurations Erweiterungs Klasse registrieren (siehe
+    :ref:`service-container-extension-configuration` für mehr Informationen).
