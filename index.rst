@@ -39,14 +39,14 @@ Kochbuch
 Lese das :doc:`Kochbuch </cookbook/index>`.
 
 Komponenten
-----------.
+-----------
 
 .. toctree::
     :hidden:
 
     components/index
 
-Lese die:doc:`Komponenten </components/index>` dokumentation.
+Lese die :doc:`Komponenten </components/index>` dokumentation.
 
 Hinweis Dokumente
 -----------------
