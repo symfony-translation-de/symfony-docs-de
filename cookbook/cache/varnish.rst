@@ -90,7 +90,7 @@ welche den Cache für die gegeben Resource invalidiert:
 
 .. caution::
 
-    Du musst die HTTP Methode``PURGE`` schützen, um zu verhindern das irgendwelche Leute
+    Du musst die HTTP Methode ``PURGE`` schützen, um zu verhindern das irgendwelche Leute
     deine Cache Daten leert.
 
 .. _`Edge Architecture`: http://www.w3.org/TR/edge-arch
