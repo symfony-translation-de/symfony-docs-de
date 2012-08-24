@@ -1,13 +1,13 @@
 .. index::
-   single: Doctrine; Custom DQL functions
+   single: Doctrine; Eigene DQL Funktionen
 
-Registering Custom DQL Functions
-================================
+Registrieren von eigenen DQL Funktionen
+=======================================
 
-Doctrine allows you to specify custom DQL functions. For more information
-on this topic, read Doctrine's cookbook article "`DQL User Defined Functions`_".
+Doctrine erlaubt es eigene DQL Funktionen anzugeben, Für mehr Informationen
+über das Thema, lies den Doctrine Cookbook Artikel "`DQL Benutzerdefinierte Funktionen`_".
 
-In Symfony, you can register your custom DQL functions as follows:
+In Symfony, kannst du eigene DQL Funktionen wie folgt registrieren:
 
 .. configuration-block::
 
@@ -80,4 +80,4 @@ In Symfony, you can register your custom DQL functions as follows:
             ),
         ));
 
-.. _`DQL User Defined Functions`: http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/dql-user-defined-functions.html
+.. _`DQL Benutzerdefinierte Funktionen`: http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/cookbook/dql-user-defined-functions.html
